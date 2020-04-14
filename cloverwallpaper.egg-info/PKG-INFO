@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: cloverwallpaper
+Version: 0.1
+Summary: A tool to download wallpapers from 4chan.
+Home-page: https://github.com/collinarnett/clover_wallpaper
+Author: Collin Arnett
+Author-email: collin@arnett.it
+License: UNKNOWN
+Description: # clover_wallpaper
+        A tool to download wallpapers from 4chan.
+        
+Keywords: 4chan,wallpaper,downloader,image,scraper
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
