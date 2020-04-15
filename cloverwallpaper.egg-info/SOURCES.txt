@@ -2,7 +2,8 @@ README.md
 setup.cfg
 setup.py
 cloverwallpaper/__init__.py
-cloverwallpaper/clover_wallpaper.py
+cloverwallpaper/__main__.py
+cloverwallpaper/cloverwallpaper.py
 cloverwallpaper.egg-info/PKG-INFO
 cloverwallpaper.egg-info/SOURCES.txt
 cloverwallpaper.egg-info/dependency_links.txt
