@@ -42,7 +42,8 @@ Description: clover_wallpaper
 Keywords: 4chan,wallpaper,downloader,image,scraper
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
-Classifier: Operating System :: POSIX :: LinuxIntended Audience :: End Users/Desktop
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Intended Audience :: End Users/Desktop
 Classifier: Topic :: Utilities
 Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
 Classifier: Programming Language :: Python :: 3
