@@ -6,17 +6,20 @@ from pathlib import Path
 import requests
 from tqdm import tqdm
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--board", help='target board to scrape images from', type=str, required=True, dest='board')
-parser.add_argument("--height", help='height of the images you wish to download', type=int, required=True, dest='height')
-parser.add_argument("--width", help='width of the images you wish to download', type=int, required=True, dest='width')
-args = parser.parse_args()
 
-
-def get_images(board, height, width):
+def main():
     """
     Downloads images from a specific board with a specified width and height.
     """
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--board", help='target board to scrape images from', type=str, required=True, dest='board')
+    parser.add_argument("--height", help='height of the images you wish to download', type=int, required=True, dest='height')
+    parser.add_argument("--width", help='width of the images you wish to download', type=int, required=True, dest='width')
+    args = parser.parse_args()
+    board = args.board
+    width = args.width
+    height = args.height
     page = requests.get(f'https://a.4cdn.org/{board}/catalog.json')
     thread_nos = [x['no'] for y in page.json() for x in y['threads']]
     filenames = []
@@ -35,6 +38,3 @@ def get_images(board, height, width):
         else:
             urllib.request.urlretrieve(f'https://i.4cdn.org/{board}/{name}', name)
             time.sleep(1)
-
-
-get_images(args.board, args.height, args.width)

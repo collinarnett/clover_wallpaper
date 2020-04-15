@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import setuptools
 
 with open('README.md', 'r') as fh:
@@ -6,11 +7,12 @@ with open('README.md', 'r') as fh:
 setuptools.setup(
     name='cloverwallpaper',
     packages=['cloverwallpaper'],
-    version='0.1',
+    version='0.2',
     description='A tool to download wallpapers from 4chan.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     author='Collin Arnett',
+    license='GPLv3',
     author_email='collin@arnett.it',
     url='https://github.com/collinarnett/clover_wallpaper',
     keywords=['4chan', 'wallpaper', 'downloader', 'image', 'scraper'],
@@ -20,7 +22,7 @@ setuptools.setup(
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
-        'Operating System :: OS Independent',
+        'Operating System :: Linux',
         'Intended Audience :: End Users/Desktop',
         'Topic :: Utilities',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
