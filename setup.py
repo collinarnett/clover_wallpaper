@@ -22,7 +22,7 @@ setuptools.setup(
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
-        'Operating System :: Linux',
+        'Operating System :: POSIX :: Linux'
         'Intended Audience :: End Users/Desktop',
         'Topic :: Utilities',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
