@@ -6,8 +6,7 @@ cloverwallpaper makes it simple to fetch all images on a 4chan board for a speci
 Installation
 ---------------
 
-Dependencies
-~~~~~~~~~~~~
+### Dependencies
 
 cloverwallpaper requires:
  
@@ -15,8 +14,7 @@ cloverwallpaper requires:
  - twdm
  - requests
 
-User installation
-~~~~~~~~~~~~~~~~
+### User installation
 
 ```
 pip install cloverwallpaper
