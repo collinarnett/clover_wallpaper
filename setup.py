@@ -7,7 +7,7 @@ with open('README.md', 'r') as fh:
 setuptools.setup(
     name='cloverwallpaper',
     packages=['cloverwallpaper'],
-    version='0.2',
+    version='0.4',
     description='A tool to download wallpapers from 4chan.',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -28,5 +28,8 @@ setuptools.setup(
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Programming Language :: Python :: 3',
     ],
+    entry_points={
+        'console_scripts': ['cloverwallpaper=cloverwallpaper.cloverwallpaper:main'],
+    },
     python_requires='>=3.6'
 )

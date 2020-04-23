@@ -7,5 +7,6 @@ cloverwallpaper/cloverwallpaper.py
 cloverwallpaper.egg-info/PKG-INFO
 cloverwallpaper.egg-info/SOURCES.txt
 cloverwallpaper.egg-info/dependency_links.txt
+cloverwallpaper.egg-info/entry_points.txt
 cloverwallpaper.egg-info/requires.txt
 cloverwallpaper.egg-info/top_level.txt

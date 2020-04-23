@@ -1,4 +1,5 @@
 import argparse
+import sys
 import time
 import urllib
 from pathlib import Path
@@ -7,16 +8,18 @@ import requests
 from tqdm import tqdm
 
 
-def main():
+def main(*argv):
     """
     Downloads images from a specific board with a specified width and height.
     """
+    if not argv:
+        argv = list(sys.argv)
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--board", help='target board to scrape images from', type=str, required=True, dest='board')
     parser.add_argument("--height", help='height of the images you wish to download', type=int, required=True, dest='height')
     parser.add_argument("--width", help='width of the images you wish to download', type=int, required=True, dest='width')
-    args = parser.parse_args()
+    args = parser.parse_args(argv[1:])
     board = args.board
     width = args.width
     height = args.height
@@ -38,3 +41,6 @@ def main():
         else:
             urllib.request.urlretrieve(f'https://i.4cdn.org/{board}/{name}', name)
             time.sleep(1)
+
+if __name__ == '__main__':
+    main(*sys.argv)

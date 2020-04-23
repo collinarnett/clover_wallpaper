@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-import cloverwallpaper
+from .cloverwallpaper import main
 
 if __name__ == '__main__':
-    cloverwallpaper.main()
+    main()
