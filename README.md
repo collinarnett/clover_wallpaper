@@ -12,7 +12,7 @@ Installation
 cloverwallpaper requires:
  
  - python (>= 3.6)
- - twdm
+ - tqdm
  - requests
 
 ### User installation
