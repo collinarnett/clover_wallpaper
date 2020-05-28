@@ -4,12 +4,11 @@ import time
 import urllib
 from pathlib import Path
 
-import requests
-from tqdm import tqdm
-
 import cv2
+import requests
 from skimage import io
 from skimage.metrics import structural_similarity
+from tqdm import tqdm
 
 
 def check_images(x_image):
@@ -24,12 +23,13 @@ def check_images(x_image):
         x_image = cv2.cvtColor(x_image, cv2.COLOR_BGRA2BGR)
     for y_image in cwd.glob("*"):
         y_image = io.imread(y_image)
-        if len(y_image.shape) > 2 and y_image.shape[2] == 4:
-            # convert the image from RGBA2RGB
-            y_image = cv2.cvtColor(y_image, cv2.COLOR_BGRA2BGR)
-        ssim = structural_similarity(x_image, y_image, multichannel=True)
-        if ssim > 0.80:
-            return True
+        if y_image.shape == x_image.shape:
+            if len(y_image.shape) > 2 and y_image.shape[2] == 4:
+                # convert the image from RGBA2RGB
+                y_image = cv2.cvtColor(y_image, cv2.COLOR_BGRA2BGR)
+            ssim = structural_similarity(x_image, y_image, multichannel=True)
+            if ssim > 0.80:
+                return True
     return False
 
 
