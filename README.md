@@ -1,5 +1,6 @@
 :four_leaf_clover: clover_wallpaper
 ==================
+[![Build Status](https://travis-ci.com/collinarnett/clover_wallpaper.svg?branch=master)](https://travis-ci.com/collinarnett/clover_wallpaper)
 
 cloverwallpaper makes it simple to fetch all images on a 4chan board for a specified resolution, making it ideal for finding wallpapers.
 
