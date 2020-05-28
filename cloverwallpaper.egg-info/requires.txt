@@ -1,2 +1,4 @@
 requests
 tqdm
+scikit-image
+opencv-python
