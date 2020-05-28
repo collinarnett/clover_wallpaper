@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: cloverwallpaper
-Version: 0.5
+Version: 0.6
 Summary: A tool to download wallpapers from 4chan.
 Home-page: https://github.com/collinarnett/clover_wallpaper
 Author: Collin Arnett
@@ -8,6 +8,7 @@ Author-email: collin@arnett.it
 License: GPLv3
 Description: :four_leaf_clover: clover_wallpaper
         ==================
+        [![Build Status](https://travis-ci.com/collinarnett/clover_wallpaper.svg?branch=master)](https://travis-ci.com/collinarnett/clover_wallpaper)
         
         cloverwallpaper makes it simple to fetch all images on a 4chan board for a specified resolution, making it ideal for finding wallpapers.
         

@@ -67,9 +67,9 @@ def main(*argv):
     width = args.width
     height = args.height
     print("Welcome to cloverwallpaper your loaded parameters are:")
-    print("Board: {args.board}")
-    print("Width: {args.width}")
-    print("Height: {args.height}")
+    print(f"Board: {args.board}")
+    print(f"Width: {args.width}")
+    print(f"Height: {args.height}")
     page = requests.get(f"https://a.4cdn.org/{board}/catalog.json")
     thread_nos = [x["no"] for y in page.json() for x in y["threads"]]
     filenames = []
