@@ -33,43 +33,11 @@ def check_images(x_image):
     return False
 
 
-def main(*argv):
+def get_images(board, width, height):
     """
-    Downloads images from a specific board with a specified width and height.
+    Get images of size (width, height) from board
     """
-    if not argv:
-        argv = list(sys.argv)
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--board",
-        help="target board to scrape images from",
-        type=str,
-        required=True,
-        dest="board",
-    )
-    parser.add_argument(
-        "--width",
-        help="width of the images you wish to download",
-        type=int,
-        required=True,
-        dest="width",
-    )
-    parser.add_argument(
-        "--height",
-        help="height of the images you wish to download",
-        type=int,
-        required=True,
-        dest="height",
-    )
-    args = parser.parse_args(argv[1:])
-    board = args.board
-    width = args.width
-    height = args.height
-    print("Welcome to cloverwallpaper your loaded parameters are:")
-    print(f"Board: {args.board}")
-    print(f"Width: {args.width}")
-    print(f"Height: {args.height}")
     page = requests.get(f"https://a.4cdn.org/{board}/catalog.json")
     thread_nos = [x["no"] for y in page.json() for x in y["threads"]]
     filenames = []
@@ -99,5 +67,43 @@ def main(*argv):
     print("Finished")
 
 
+def main():
+    """
+    Main process
+    """
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--board",
+        help="target board to scrape images from",
+        type=str,
+        required=True,
+        dest="board",
+    )
+    parser.add_argument(
+        "--width",
+        help="width of the images you wish to download",
+        type=int,
+        required=True,
+        dest="width",
+    )
+    parser.add_argument(
+        "--height",
+        help="height of the images you wish to download",
+        type=int,
+        required=True,
+        dest="height",
+    )
+    args = parser.parse_args()
+    board = args.board
+    width = args.width
+    height = args.height
+    print("Welcome to cloverwallpaper your loaded parameters are:")
+    print(f"Board: {args.board}")
+    print(f"Width: {args.width}")
+    print(f"Height: {args.height}")
+    get_images(board, width, height)
+
+
 if __name__ == "__main__":
-    main(*sys.argv)
+    main()
