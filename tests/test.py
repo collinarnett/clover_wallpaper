@@ -13,7 +13,10 @@ def test_ssim():
     get_images("wg", 3440, 1440)
 
     # Shuffle image names
-    for img in Path.cwd().glob("*.jpg|*.png"):
+    for img in Path.cwd().glob("*.jpg"):
+        random_string = uuid.uuid4().hex.upper()
+        img.rename(f"{random_string}{img.suffix}")
+    for img in Path.cwd().glob("*.png"):
         random_string = uuid.uuid4().hex.upper()
         img.rename(f"{random_string}{img.suffix}")
 

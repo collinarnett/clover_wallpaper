@@ -21,12 +21,15 @@ def check_images(x_image):
     if len(x_image.shape) > 2 and x_image.shape[2] == 4:
         # convert the image from RGBA2RGB
         x_image = cv2.cvtColor(x_image, cv2.COLOR_BGRA2BGR)
-    for y_image in cwd.glob("*"):
+    for y_image in cwd.glob("*.jpg"):
         y_image = io.imread(y_image)
         if y_image.shape == x_image.shape:
-            if len(y_image.shape) > 2 and y_image.shape[2] == 4:
-                # convert the image from RGBA2RGB
-                y_image = cv2.cvtColor(y_image, cv2.COLOR_BGRA2BGR)
+            ssim = structural_similarity(x_image, y_image, multichannel=True)
+            if ssim > 0.80:
+                return True
+    for y_image in cwd.glob("*.png"):
+        y_image = io.imread(y_image)
+        if y_image.shape == x_image.shape:
             ssim = structural_similarity(x_image, y_image, multichannel=True)
             if ssim > 0.80:
                 return True
