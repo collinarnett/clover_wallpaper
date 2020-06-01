@@ -49,8 +49,10 @@ def get_images(board, width, height):
             f"https://a.4cdn.org/{board}/thread/{thread}.json"
         )
         for post_content in thread_content.json()["posts"]:
-            if ("w" and "h" in post_content) and (
-                post_content["w"] == width and post_content["h"] == height
+            if (
+                'h' in post_content
+                and post_content['w'] == width
+                and post_content['h'] == height
             ):
                 attachment_timestamp = post_content["tim"]
                 attachment_ext = post_content["ext"]
@@ -62,11 +64,10 @@ def get_images(board, width, height):
         image_url = f"https://i.4cdn.org/{board}/{name}"
         if Path(name).is_file() or check_images(image_url):
             download_bar.set_description(desc=f"{name} exists")
-            time.sleep(1)
         else:
             urllib.request.urlretrieve(image_url, name)
             download_bar.set_description(desc=f"{name} downloaded")
-            time.sleep(1)
+        time.sleep(1)
     print("Finished")
 
 
