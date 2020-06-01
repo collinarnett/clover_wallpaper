@@ -23,7 +23,11 @@ def get_images(board, height, width):
     for thread in tqdm(thread_nos, desc="Getting threads"):
         thread_content = requests.get(f'https://a.4cdn.org/{board}/thread/{thread}.json')
         for post_content in thread_content.json()['posts']:
-            if ('w' and 'h' in post_content) and (post_content['w'] == width and post_content['h'] == height):
+            if (
+                'h' in post_content
+                and post_content['w'] == width
+                and post_content['h'] == height
+            ):
                 attachment_timestamp = post_content['tim']
                 attachment_ext = post_content['ext']
                 filename = f'{attachment_timestamp}{attachment_ext}'
