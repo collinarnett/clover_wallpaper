@@ -3,3 +3,4 @@
 4chan_wallpapers/
 __pycache__/
 *.pyc
+.vscode/

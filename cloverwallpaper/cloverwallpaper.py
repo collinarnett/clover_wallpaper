@@ -1,39 +1,11 @@
 import argparse
-import sys
 import time
 import urllib
 from pathlib import Path
 
-import cv2
 import requests
-from skimage import io
-from skimage.metrics import structural_similarity
+from imagededup.methods import CNN
 from tqdm import tqdm
-
-
-def check_images(x_image):
-    """
-    Check if images in the current directory are the same as downloaded image
-    """
-    cwd = Path.cwd()
-    x_image = io.imread(x_image)
-    # In case of grayScale images the len(img.shape) == 2
-    if len(x_image.shape) > 2 and x_image.shape[2] == 4:
-        # convert the image from RGBA2RGB
-        x_image = cv2.cvtColor(x_image, cv2.COLOR_BGRA2BGR)
-    for y_image in cwd.glob("*.jpg"):
-        y_image = io.imread(y_image)
-        if y_image.shape == x_image.shape:
-            ssim = structural_similarity(x_image, y_image, multichannel=True)
-            if ssim > 0.80:
-                return True
-    for y_image in cwd.glob("*.png"):
-        y_image = io.imread(y_image)
-        if y_image.shape == x_image.shape:
-            ssim = structural_similarity(x_image, y_image, multichannel=True)
-            if ssim > 0.80:
-                return True
-    return False
 
 
 def get_images(board, width, height):
@@ -62,7 +34,7 @@ def get_images(board, width, height):
     download_bar = tqdm(filenames)
     for name in download_bar:
         image_url = f"https://i.4cdn.org/{board}/{name}"
-        if Path(name).is_file() or check_images(image_url):
+        if Path(name).is_file():
             download_bar.set_description(desc=f"{name} exists")
         else:
             urllib.request.urlretrieve(image_url, name)
@@ -98,15 +70,35 @@ def main():
         required=True,
         dest="height",
     )
+    parser.add_argument(
+        "--similarity",
+        help="minimum similarity threshold to delete duplicate images. Must be between 0 and 1.",
+        type=float,
+        required=True,
+        dest="similarity",
+    )
     args = parser.parse_args()
     board = args.board
     width = args.width
     height = args.height
+    similarity = args.similarity
     print("Welcome to cloverwallpaper your loaded parameters are:")
     print(f"Board: {args.board}")
     print(f"Width: {args.width}")
     print(f"Height: {args.height}")
+    print(f"Similarity: {args.similarity}")
     get_images(board, width, height)
+    print("Removing duplicate images")
+
+    cnn_encoder = CNN()
+    duplicates = cnn_encoder.find_duplicates_to_remove(
+        image_dir=".", min_similarity_threshold=similarity
+    )
+    for file_name in duplicates:
+        if Path(file_name).is_file():
+            Path(file_name).unlink()
+    print(f"Removed {len(duplicates)} files")
+    print("Finished")
 
 
 if __name__ == "__main__":
