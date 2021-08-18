@@ -14,22 +14,29 @@ cloverwallpaper requires:
  - python (>= 3.6)
  - tqdm
  - requests
-
+---
 ### User installation
 
-```
+
+#### Python
+```bash
 pip install cloverwallpaper
 ```
-
+#### Docker
+```bash
+docker run -v "$(pwd)":/home/cloverwallpaper collinarnett/cloverwallpaper:latest ARGUMENTS
+```
+---
 Usage
----------
-
+---
 ```
-usage: cloverwallpaper [-h] --board BOARD --height HEIGHT --width WIDTH
-
+usage: cloverwallpaper [-h] --boards BOARDS [BOARDS ...] --width WIDTH
+                       --height HEIGHT
 optional arguments:
-  -h, --help       show this help message and exit
-  --board BOARD    target board to scrape images from
-  --height HEIGHT  height of the images you wish to download
-  --width WIDTH    width of the images you wish to download
+  -h, --help            show this help message and exit
+  --boards BOARDS [BOARDS ...]
+                        target board to scrape images from
+  --width WIDTH         width of the images you wish to download
+  --height HEIGHT       height of the images you wish to download
 ```
+
