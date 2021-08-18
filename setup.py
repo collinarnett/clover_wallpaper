@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="cloverwallpaper",
     packages=["cloverwallpaper"],
-    version="0.6.4",
+    version="0.6.7",
     description="A tool to download wallpapers from 4chan.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,7 +16,7 @@ setuptools.setup(
     author_email="collin@arnett.it",
     url="https://github.com/collinarnett/clover_wallpaper",
     keywords=["4chan", "wallpaper", "downloader", "image", "scraper"],
-    install_requires=["requests", "tqdm", "imagededup"],
+    install_requires=["requests", "tqdm"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Operating System :: POSIX :: Linux",

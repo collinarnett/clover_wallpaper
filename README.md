@@ -14,7 +14,6 @@ cloverwallpaper requires:
  - python (>= 3.6)
  - tqdm
  - requests
- - skimage
 
 ### User installation
 

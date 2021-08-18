@@ -1,3 +1,0 @@
-[console_scripts]
-cloverwallpaper = cloverwallpaper.cloverwallpaper:main
-

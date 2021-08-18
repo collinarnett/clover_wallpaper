@@ -1,6 +1,2 @@
-requests==2.23.0
-scikit_image==0.17.2
-opencv_python==4.2.0.34
-tqdm==4.46.0
-imagededup==0.2.2
-skimage==0.0
+requests
+tqdm
